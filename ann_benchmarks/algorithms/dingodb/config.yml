@@ -1,0 +1,16 @@
+float:
+  any:
+    - base_args: ["@metric", "@dimension"]
+      constructor: DingoHNSW
+      disabled: false
+      docker_tag: ann-benchmarks-dingodb
+      module: ann_benchmarks.algorithms.dingodb
+      name: dingodb-hnsw
+      run_groups:
+        HNSW:
+          args:
+            batch_size: 1000
+            parallelism: 1
+            M: [64]
+            ef_construction: [200]
+          query_args: [[10]]
